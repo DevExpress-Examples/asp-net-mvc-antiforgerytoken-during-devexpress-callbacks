@@ -1,0 +1,8 @@
+@Html.DevExpress().CallbackPanel(settings => {
+    settings.Name = "cp";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "CallbackPanelPartial" };
+    settings.SetContent(() => {
+        ViewContext.Writer.Write(Html.AntiForgeryToken().ToHtmlString());
+    });
+    settings.ClientSideEvents.BeginCallback = "OnBeginCallback";
+}).GetHtml()
