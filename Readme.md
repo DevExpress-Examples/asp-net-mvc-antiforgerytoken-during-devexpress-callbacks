@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/DXWebApplication1/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/DXWebApplication1/Controllers/HomeController.vb))
+* [CallbackPanelPartial.cshtml](./CS/DXWebApplication1/Views/Home/CallbackPanelPartial.cshtml)
+* **[Index.cshtml](./CS/DXWebApplication1/Views/Home/Index.cshtml)**
+<!-- default file list end -->
 # How to use AntiForgeryToken during DevExpress callbacks
 
 
