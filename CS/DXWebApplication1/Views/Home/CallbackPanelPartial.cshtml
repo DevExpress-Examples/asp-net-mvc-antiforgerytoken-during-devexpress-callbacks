@@ -4,5 +4,4 @@
     settings.SetContent(() => {
         ViewContext.Writer.Write(Html.AntiForgeryToken().ToHtmlString());
     });
-    settings.ClientSideEvents.BeginCallback = "OnBeginCallback";
 }).GetHtml()

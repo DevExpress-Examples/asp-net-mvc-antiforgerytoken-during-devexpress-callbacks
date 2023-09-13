@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
     <title>@ViewBag.Title</title>
-    @Html.DevExpress().GetStyleSheets(
+@Html.DevExpress().GetStyleSheets(
         new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout }
-    )
-    @Html.DevExpress().GetScripts(
+)
+@Html.DevExpress().GetScripts( 
         new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout }
-    )
+)
 </head>
 <body>
     @RenderBody()
