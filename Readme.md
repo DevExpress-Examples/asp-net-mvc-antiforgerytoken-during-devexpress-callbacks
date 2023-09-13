@@ -3,21 +3,50 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E5112)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
 
-* [HomeController.cs](./CS/DXWebApplication1/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/DXWebApplication1/Controllers/HomeController.vb))
-* [CallbackPanelPartial.cshtml](./CS/DXWebApplication1/Views/Home/CallbackPanelPartial.cshtml)
-* **[Index.cshtml](./CS/DXWebApplication1/Views/Home/Index.cshtml)**
-<!-- default file list end -->
-# How to use AntiForgeryToken during DevExpress callbacks
+# ASP.NET MVC - How to use AntiForgeryToken during DevExpress callbacks
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/e5112/)**
 <!-- run online end -->
 
+The [Html.AntiForgeryToken](https://learn.microsoft.com/en-us/dotnet/api/system.web.mvc.htmlhelper.antiforgerytoken) method generates a hidden form field (anti-forgery token) that can be validated when the form is submitted. Call this method inside a DevExpress callback-aware extension to automatically send the token value with an extension callback.
 
-<p>This example is an illustration of the <a href="https://www.devexpress.com/Support/Center/p/KA18920">KA18920: How to use AntiForgeryToken during DevExpress callbacks</a> KB Article. Refer to the Article for an explanation.</p>
+## Implementation Details
 
-<br/>
+In this example, the `Html.AntiForgeryToken` method is called in a [SetContent](https://docs.devexpress.com/AspNetMvc/DevExpress.Web.Mvc.CollapsiblePanelSettings.SetContent(System.Action)) method handler.
 
+```scharp
+@Html.DevExpress().CallbackPanel(settings => {
+    settings.Name = "cp";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "CallbackPanelPartial" };
+    settings.SetContent(() => {
+        ViewContext.Writer.Write(Html.AntiForgeryToken().ToHtmlString());
+    });
+}).GetHtml()
+```
 
+When a user clicks the button, the panel sends the token with a callback.
+
+```html
+<input type="button" value="Perform Callback" onclick="cp.PerformCallback();" />
+```
+
+To check the value on the server, decorate the action method with the [ValidateAntiForgeryToken](https://learn.microsoft.com/en-us/dotnet/api/system.web.mvc.validateantiforgerytokenattribute) attribute.
+
+```scharp
+[ValidateAntiForgeryToken]
+public ActionResult CallbackPanelPartial() {
+    System.Threading.Thread.Sleep(1000);
+    return PartialView();
+}
+```
+
+## Files to Review
+
+* [HomeController.cs](./CS/DXWebApplication1/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/DXWebApplication1/Controllers/HomeController.vb))
+* [CallbackPanelPartial.cshtml](./CS/DXWebApplication1/Views/Home/CallbackPanelPartial.cshtml)
+* [Index.cshtml](./CS/DXWebApplication1/Views/Home/Index.cshtml)
+
+## More Examples
+
+*[Grid for ASP.NET MVC - How to use AntiForgeryToken with CRUD operations](https://github.com/DevExpress-Examples/asp-net-mvc-grid-antiforgerytoken-with-crud-operations)
