@@ -49,4 +49,4 @@ public ActionResult CallbackPanelPartial() {
 
 ## More Examples
 
-* [Grid for ASP.NET MVC - How to use AntiForgeryToken with CRUD operations](https://github.com/DevExpress-Examples/asp-net-mvc-grid-antiforgerytoken-with-crud-operations)
+* [rid for ASP.NET MVC - How to use AntiForgeryToken with CRUD operations](https://github.com/DevExpress-Examples/asp-net-mvc-grid-antiforgerytoken-with-crud-operations)
