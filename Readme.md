@@ -12,7 +12,7 @@
 <!-- default file list end -->
 # How to use AntiForgeryToken during DevExpress callbacks
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e5112/)**
+**[[Run Online]](https://codecentral.devexpress.com/128566909/)**
 <!-- run online end -->
 
 
