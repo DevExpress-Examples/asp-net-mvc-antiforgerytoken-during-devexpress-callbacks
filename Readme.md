@@ -6,7 +6,7 @@
 
 # ASP.NET MVC - How to use AntiForgeryToken during DevExpress callbacks
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e5112/)**
+**[[Run Online]](https://codecentral.devexpress.com/128566909/)**
 <!-- run online end -->
 
 The [Html.AntiForgeryToken](https://learn.microsoft.com/en-us/dotnet/api/system.web.mvc.htmlhelper.antiforgerytoken) method generates a hidden form field (anti-forgery token) that can be validated when the form is submitted. Call this method inside a DevExpress callback-aware extension to automatically send the token value with an extension callback.
