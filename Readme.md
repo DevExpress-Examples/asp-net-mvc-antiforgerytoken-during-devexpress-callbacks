@@ -11,9 +11,6 @@
 * **[Index.cshtml](./CS/DXWebApplication1/Views/Home/Index.cshtml)**
 <!-- default file list end -->
 # How to use AntiForgeryToken during DevExpress callbacks
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/128566909/)**
-<!-- run online end -->
 
 
 <p>This example is an illustration of the <a href="https://www.devexpress.com/Support/Center/p/KA18920">KA18920: How to use AntiForgeryToken during DevExpress callbacks</a> KB Article. Refer to the Article for an explanation.</p>
